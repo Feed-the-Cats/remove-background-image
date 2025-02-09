@@ -1,0 +1,28 @@
+.footer {
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--primary);
+  background: var(--card);
+}
+
+.titleH3 {
+  font-size: var(--titleH3);
+  color: var(--text);
+}
+
+.paragraphe {
+  color: var(--text);
+}
+
+.link {
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.65);
+}
+
+.link:hover {
+  color: var(--primary);
+}

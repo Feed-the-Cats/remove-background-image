@@ -1,0 +1,118 @@
+.imageContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: end;
+  gap: 10px;
+}
+
+.titleH1 {
+  font-size: var(--titleH1);
+  color: var(--text);
+}
+
+.captionTransition {
+  height: 70px;
+  overflow: hidden;
+  cursor: n-resize;
+  transition: height 1s;
+}
+
+.captionTransition:hover {
+  height: 100%;
+}
+.imgCss {
+  transition: width 1s;
+  cursor: pointer;
+}
+.imgCss[data-selected="true"] {
+  width: 240px;
+  margin: 30px;
+  border: 1px solid var(--primary);
+}
+
+.buttonsContainerVertical {
+  width: 259px;
+  height: 362px;
+  border: 2px solid var(--primary);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttonsContainerHorizontal {
+  width: 259px;
+  height: 362px;
+  border: 2px solid var(--primary);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.downloadButton,
+.fullscreenButton,
+.downloadZip {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-top: 12px;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  outline: none;
+  color: var(--primary);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  touch-action: manipulation;
+  transition: color 100ms;
+}
+
+.downloadZip {
+  width: auto;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.downloadZip[disabled] {
+  background-color: var(--buttonHover);
+  cursor: not-allowed;
+}
+
+/* horizontal image*/
+/* ._src_components_imageResult_imageResult_module__buttonsContainer {
+    width: 259px;
+    height: 362px;
+    border: 2px solid var(--primary);
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  } */
+
+.downloadButton:hover,
+.fullscreenButton:hover {
+  background: var(--buttonHover);
+}
+
+.downloadIcon,
+.fullscreenIcon {
+  width: 25px;
+  height: auto;
+  fill: var(--primary);
+}
+
+.expand {
+  width: 15px;
+  height: auto;
+  fill: var(--primary);
+}

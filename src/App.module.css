@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200&display=swap");
+:root {
+  --primary: hsl(214, 26%, 54%);
+  --contrast: #101020;
+  --titleH1: 3rem;
+  --titleH3: 1.3rem;
+  --text: #ffffff;
+  --paper: hsl(214, 26%, 11%);
+  --gradientStart: hsl(235 26% 11% / 1);
+  --gradientStop: hsl(235deg 26% 11% / 50%);
+  --card: hsl(214, 26%, 7%);
+  --buttonHover: hsl(214deg 26% 54% / 19%);
+  --spinnerColor2: #ccbbff;
+  --spinnerColor3: #aaffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Assistant", sans-serif;
+  text-align: center;
+}
+
+.App {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  background-color: var(--paper);
+}
+
+.captionTransition {
+  overflow: hidden;
+  transition: height 1s;
+}
+
+.isLoaded {
+  height: 100%;
+}
+
+.buttonsContainerVertical {
+  width: 259px;
+  height: 362px;
+  border: 2px solid var(--primary);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttonsContainerHorizontal {
+  width: 259px;
+  height: 362px;
+  border: 2px solid var(--primary);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.noDisplayLoader {
+  display: none;
+}
+
+/* .previewFigure {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+}
+
+.img {
+  width: 300px;
+  height: auto;
+}
+
+.previewCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  font-style: italic;
+  font-size: smaller;
+  text-align: center;
+  color: var(--text);
+}
+ */

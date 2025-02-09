@@ -1,0 +1,54 @@
+/* @import "../../cssVariable.css"; */
+/* autoprefixer grid: autoplace */
+
+.dropZoneContainer {
+  width: 100%;
+  min-height: 777px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 70px;
+  box-shadow: var(--contrast) 1px 1px 25px;
+}
+
+.dropZone {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='hsl(214, 26%, 54%)' stroke-width='7' stroke-dasharray='50' stroke-dashoffset='25' stroke-linecap='square'/%3e%3c/svg%3e ");
+  cursor: pointer;
+  /*border-radius: 25px;*/
+  overflow: hidden;
+}
+
+/* .dropZone:before {
+  content: "";
+  position: absolute;
+  border: 10px dashed var(--primary);
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+} */
+
+.titleH1 {
+  font-size: var(--titleH1);
+  color: var(--text);
+  padding: 30px 19px 0;
+}
+
+.uploadIcon {
+  width: 90px;
+  height: auto;
+  fill: var(--primary);
+}

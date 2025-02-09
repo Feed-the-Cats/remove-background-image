@@ -1,0 +1,47 @@
+.figure {
+  /*   border: thin #c0c0c0 solid;
+ */
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+}
+
+.img {
+  width: 300px;
+  height: auto;
+}
+
+.checkedIcon {
+  fill: var(--primary);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 40px;
+  width: 25px;
+  height: auto;
+  display: none;
+}
+
+.checkedIcon[data-selected="true"] {
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 48px;
+  max-height: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  font-style: italic;
+  font-size: smaller;
+  text-align: center;
+  color: var(--text);
+  background: linear-gradient(0deg, var(--gradientStart), var(--gradientStop));
+  backdrop-filter: blur(10px);
+}
