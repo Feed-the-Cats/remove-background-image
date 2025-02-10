@@ -6,12 +6,13 @@ import {
   loadedAtom,
   loadingAtom,
   stateAtom,
+  uploadedFileAtom,
 } from "@/store/store";
-import imglyRemoveBackground, { Config } from "@imgly/background-removal";
+import { Config, removeBackground } from "@imgly/background-removal";
 import { useAtom } from "jotai";
 
 const useImageProcessor = () => {
-  // const [uploadedFile, setUploadedFile] = useAtom(uploadedFileAtom);
+  const [uploadedFile, setUploadedFile] = useAtom(uploadedFileAtom);
   const [imageSource, setImageSource] = useAtom(imageSourceAtom);
   const [loading, setLoading] = useAtom(loadingAtom);
   const [loaded, setLoaded] = useAtom(loadedAtom);
@@ -22,9 +23,8 @@ const useImageProcessor = () => {
 
   const processImage = async (url: string) => {
     const config: Config = {
-      fetchArgs: {
-        mode: "no-cors",
-      },
+      // publicPath: "/", // Chemin public pour les fichiers WASM
+      debug: true, // Activer les logs de débogage
       progress: (key: string, current: number, total: number) => {
         key.startsWith("fetch")
           ? setState(`Fetch data ${current} of ${total}`)
@@ -41,7 +41,8 @@ const useImageProcessor = () => {
     console.log("urlToBlob", urlToBlob);
     setLoaded(false);
 
-    imglyRemoveBackground(urlToBlob, config).then((blob) => {
+    try {
+      const blob = await removeBackground(urlToBlob, config);
       const reader = new FileReader();
       reader.readAsDataURL(blob);
 
@@ -51,7 +52,11 @@ const useImageProcessor = () => {
         addImage(reader.result as string);
         setLoaded(true);
       };
-    });
+    } catch (error) {
+      console.error("Error removing background:", error);
+      setState("Failed to remove background");
+      setLoaded(false);
+    }
   };
 
   function addImage(img: string) {
@@ -76,6 +81,7 @@ const useImageProcessor = () => {
   }
 
   return {
+    uploadedFile,
     imageSource,
     loading,
     loaded,
