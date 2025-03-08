@@ -6,8 +6,6 @@ import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    {/* <DropContextProvider> */}
-    <App />
-    {/* </DropContextProvider> */}
+      <App />
   </React.StrictMode>
 );

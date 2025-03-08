@@ -1,31 +1,30 @@
-import URL_IMAGES from "@/assets/sampleImagesList";
+import { URL_IMAGES, urlImageType } from "@/assets/sampleImagesList";
 import Image from "@/components/image/Image";
 import useImageProcessor from "@/hooks/useImageProcessor";
-import { imageNameAtom, imageSizeAtom } from "@/store/store";
+import { imageSizeAtom, sourceImageNameAtom } from "@/store/store";
 import { useSetAtom } from "jotai";
 import { FC, JSX } from "react";
 import styles from "./sampleImages.module.css";
 
 const SampleImages: FC = (): JSX.Element => {
   // const [uploadedFile, setUploadedFile] = useAtom(uploadedFileAtom);
+  const sourceImageName = useSetAtom(sourceImageNameAtom);
+  // imn = useAtomValue(sourceImageNameAtom);
+  // const imageName = useSetAtom(imageNameAtom);
   const imageSize = useSetAtom(imageSizeAtom);
-  const imageName = useSetAtom(imageNameAtom);
   const { processImage } = useImageProcessor();
 
-  type onClickType = {
-    width: number;
-    height: number;
-    name: string;
-    image: string;
-  };
-  const onClick = (
+  const handleClickImage = (
     //e: MouseEventHandler<HTMLElement>,
-    { width, height, name, image }: onClickType
+    { width, height, name, image }: urlImageType
   ) => {
     imageSize({ width, height });
-    imageName(name);
     // setUploadedFile(image);
+    sourceImageName(name);
     processImage(image);
+    // const tt = [width, height, name, image];
+    // console.log("sourceImageName", imn);
+    // console.log("width, height, name, image", tt);
   };
   return (
     <div className={styles.sampleImagesContainer}>
@@ -36,7 +35,7 @@ const SampleImages: FC = (): JSX.Element => {
             <Image
               key={id}
               {...{
-                onClick: () => onClick({ width, height, name, image }),
+                onClick: () => handleClickImage({ width, height, name, image }),
                 id: id,
                 src: image,
                 name: name,
@@ -50,4 +49,5 @@ const SampleImages: FC = (): JSX.Element => {
     </div>
   );
 };
+
 export default SampleImages;

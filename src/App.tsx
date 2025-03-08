@@ -9,11 +9,13 @@ import Image from "./components/image/Image";
 import ImageResult from "./components/imageResult/ImageResult";
 //import { DropContext } from "./dropContext/dropContext.stsx";
 import { useAtomValue } from "jotai";
+import { DevTools } from "jotai-devtools";
 import {
-  imageNameAtom,
   imageSizeAtom,
   imageSourceAtom,
   loadedAtom,
+  loadingAtom,
+  sourceImageNameAtom,
   stateAtom,
 } from "./store/store";
 
@@ -22,30 +24,39 @@ const App = () => {
     useContext(DropContext); */
 
   const imageSource = useAtomValue(imageSourceAtom);
+  const loading = useAtomValue(loadingAtom);
   const loaded = useAtomValue(loadedAtom);
   const state = useAtomValue(stateAtom);
   const imageSize = useAtomValue(imageSizeAtom);
-  const imageName = useAtomValue(imageNameAtom);
+  //const imageName = useAtomValue(imageNameAtom);
+  const sourceImageName = useAtomValue(sourceImageNameAtom);
 
   const { width, height } = imageSize;
-  const captionStyles = [
+  /* const captionStyles = [
     styles.captionTransition,
     loaded === false ? styles.isLoaded : "",
-  ].join(" ");
+  ].join(" "); */
 
   return (
     <div className={styles.App}>
+      <DevTools />
       <DropZone />
+      <p style={{ color: "white" }}>{loading}</p>
+      <p style={{ color: "white" }}>{state}</p>
+      <p style={{ color: "white" }}>{`${loaded}`}</p>
       {imageSource ? (
         <Image
           {...{
             src: imageSource,
-            name: imageName,
-            figcaptionCss: captionStyles,
+            name: sourceImageName,
+            figcaptionCss: [
+              styles.captionTransition,
+              loaded === false ? styles.isLoaded : "",
+            ].join(" "),
             figcaptionText: (
               <>
                 <div>
-                  <p>Name : {imageName}</p>
+                  <p>Name : {sourceImageName}</p>
                   <p>
                     Sise w : {width} - h : {height}
                   </p>

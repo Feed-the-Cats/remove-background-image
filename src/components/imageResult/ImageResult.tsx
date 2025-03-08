@@ -2,12 +2,14 @@ import DownloadThinIcon from "@/components/icons/DownloadThinIcon";
 import ExpandThinIcon from "@/components/icons/ExpandThinIcon";
 import FullscreenThinIcon from "@/components/icons/FullscreenThinIcon";
 import Image from "@/components/image/Image";
-import { FC, JSX, MouseEvent } from "react";
+import { FC, JSX, MouseEvent, useEffect } from "react";
 //import CheckCircleThinIcon from "../icons/CheckCircleThinIcon";
 import ImageModal from "@/components/imagemodal/ImageModal";
+import useScrollToActiveImage from "@/hooks/useScrollToActiveImage";
 import downloadImage from "@/lib/downloadImage";
 import selectedToZip from "@/lib/selecImagesForZip";
 import {
+  activeIdAtom,
   imagesAtom,
   isButtonDisabledAtom,
   isModalOpenAtom,
@@ -23,6 +25,7 @@ const ImageResult: FC = (): JSX.Element => {
   const [isButtonDisabled, setIsButtonDisabled] = useAtom(isButtonDisabledAtom);
   const setModalImage = useSetAtom(modalImageAtom);
   const setModalName = useSetAtom(modalNameAtom);
+  const setActiveId = useSetAtom(activeIdAtom);
 
   const handleFullscreenImage = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -64,6 +67,13 @@ const ImageResult: FC = (): JSX.Element => {
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   }); */
 
+  useScrollToActiveImage();
+  useEffect(() => {
+    if (images.length > 0) {
+      setActiveId(images[0].id); // Définir l'ID de la première image comme actif
+    }
+  }, [images, setActiveId]);
+
   return (
     <>
       {!!images.length && (
@@ -78,7 +88,6 @@ const ImageResult: FC = (): JSX.Element => {
           </button>
         </>
       )}
-
       <div className={styles.imageContainer}>
         {images.map(({ id, image, name, width, height, isSelected }) => {
           //console.log("img in", image)

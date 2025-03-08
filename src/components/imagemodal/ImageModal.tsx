@@ -8,8 +8,8 @@ import styles from "./imageModal.module.css";
 
 const ImageModal: FC = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
-  const [modalImage] = useAtomValue(modalImageAtom);
-  const [modalName] = useAtomValue(modalNameAtom);
+  const modalImage = useAtomValue(modalImageAtom);
+  const modalName = useAtomValue(modalNameAtom);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
   /*   const isOpen = computed(() => isModalOpen.value === true); */

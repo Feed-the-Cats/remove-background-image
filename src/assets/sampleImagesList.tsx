@@ -1,12 +1,12 @@
-type urlImageType = {
-  id: string;
+export type urlImageType = {
+  id?: string;
   image: string;
   name: string;
   width: number;
   height: number;
 };
 
-const URL_IMAGES: urlImageType[] = [
+export const URL_IMAGES: urlImageType[] = [
   {
     id: "imageSample1",
     image:
@@ -49,4 +49,4 @@ const URL_IMAGES: urlImageType[] = [
   },
 ];
 
-export default URL_IMAGES;
+// export default { URL_IMAGES };
