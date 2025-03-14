@@ -1,36 +1,34 @@
-import { URL_IMAGES, urlImageType } from "@/assets/sampleImagesList";
 import Image from "@/components/image/Image";
-import useImageProcessor from "@/hooks/useImageProcessor";
-import { imageSizeAtom, sourceImageNameAtom } from "@/store/store";
-import { useSetAtom } from "jotai";
+import styles from "@/components/SampleImages/sampleImages.module.css";
+import {
+  imageSizeAtom,
+  sampleImagesAtom,
+  sourceImageNameAtom,
+  uploadedFileAtom,
+} from "@/store/store";
+import { useAtom } from "jotai";
 import { FC, JSX } from "react";
-import styles from "./sampleImages.module.css";
 
 const SampleImages: FC = (): JSX.Element => {
-  // const [uploadedFile, setUploadedFile] = useAtom(uploadedFileAtom);
-  const sourceImageName = useSetAtom(sourceImageNameAtom);
-  // imn = useAtomValue(sourceImageNameAtom);
-  // const imageName = useSetAtom(imageNameAtom);
-  const imageSize = useSetAtom(imageSizeAtom);
-  const { processImage } = useImageProcessor();
+  const [sampleImages] = useAtom(sampleImagesAtom);
+  const [, sourceImageName] = useAtom(sourceImageNameAtom);
+  const [, setUploadedFile] = useAtom(uploadedFileAtom);
+  const [, imageSize] = useAtom(imageSizeAtom);
 
   const handleClickImage = (
     //e: MouseEventHandler<HTMLElement>,
     { width, height, name, image }: urlImageType
   ) => {
     imageSize({ width, height });
-    // setUploadedFile(image);
     sourceImageName(name);
-    processImage(image);
-    // const tt = [width, height, name, image];
-    // console.log("sourceImageName", imn);
-    // console.log("width, height, name, image", tt);
+    setUploadedFile(image);
   };
+
   return (
     <div className={styles.sampleImagesContainer}>
       <h3 className={styles.titleH3}>Or try these examples:</h3>
       <div className={styles.imagesContainer}>
-        {URL_IMAGES.map(({ id, image, name, width, height }) => {
+        {sampleImages.map(({ id, image, name, width, height }) => {
           return (
             <Image
               key={id}

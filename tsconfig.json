@@ -36,7 +36,6 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/hooks/useImageProcessor.ts",
     "src/dropContext/dropContext.stsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
