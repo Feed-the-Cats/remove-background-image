@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import svgToDataUri from "mini-svg-data-uri";
+
 export default {
   content: [
     "./index.html",
@@ -24,7 +26,17 @@ export default {
         gradientStart: "hsl(235 26% 11% / 1)",
         gradientStop: "hsl(235deg 26% 11% / 50%)",
       },
+      boxShadow: {
+        shadow: "1px 1px 25px #101020",
+      },
+      backgroundImage: {
+        dropzoneBorder: `url("${svgToDataUri(`
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="none" stroke="hsl(214, 26%, 54%)" stroke-width="7" stroke-dasharray="50" stroke-dashoffset="25" stroke-linecap="square"/>
+          </svg>
+        `)}")`,
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };

@@ -18,7 +18,7 @@ import {
   splitedImagesAtom,
 } from "@/store/store";
 import { useAtom } from "jotai";
-import Button from "../iconButton/Button";
+import Button from "../button/Button";
 
 const ImageResult: FC = (): JSX.Element => {
   const [splitedImages] = useAtom(splitedImagesAtom);

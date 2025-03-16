@@ -1,5 +1,4 @@
 import Image from "@/components/image/Image";
-import styles from "@/components/SampleImages/sampleImages.module.css";
 import {
   imageSizeAtom,
   sampleImagesAtom,
@@ -25,9 +24,9 @@ const SampleImages: FC = (): JSX.Element => {
   };
 
   return (
-    <div className={styles.sampleImagesContainer}>
-      <h3 className={styles.titleH3}>Or try these examples:</h3>
-      <div className={styles.imagesContainer}>
+    <div className="min-h-60 h-auto max-w-full min-w-72 mb-8 p-5 flex flex-col justify-around border border-primary text-text bg-card">
+      <h3 className="mb-5">Or try these examples:</h3>
+      <div className="w-auto flex flex-wrap justify-center gap-2.5">
         {sampleImages.map(({ id, image, name, width, height }) => {
           return (
             <Image
@@ -37,8 +36,8 @@ const SampleImages: FC = (): JSX.Element => {
                 id: id,
                 src: image,
                 name: name,
-                imgCss: styles.img,
-                figcaptionCss: styles.caption,
+                imgCss: "w-auto h-36 cursor-pointer",
+                figcaptionCss: "hidden",
               }}
             />
           );

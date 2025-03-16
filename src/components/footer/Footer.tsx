@@ -1,15 +1,14 @@
 import { FC, JSX } from "react";
-import styles from "./footer.module.css";
 
 const Footer: FC = (): JSX.Element => {
   return (
-    <div className={styles.footer}>
-      <h3 className={styles.titleH3}>Remove backround image</h3>
+    <div className="p-3.5 w-full h-24 flex flex-col gap-2 border-t border-primary bg-card">
+      <h3 className="text-titleH3 text-text">Remove backround image</h3>
       <div>
-        <p className={styles.paragraphe}>
+        <p className="text-text">
           Process :{" "}
           <a
-            className={styles.link}
+            className="no-underline text-white/65 hover:text-primary"
             href="https://github.com/imgly/background-removal-js"
             target="_blank"
           >

@@ -1,6 +1,6 @@
 import CheckCircleThinIcon from "@/components/icons/CheckCircleThinIcon";
+import { cn } from "@/lib/utils";
 import { FC, JSX, MouseEventHandler, ReactNode } from "react";
-import styles from "./image.module.css";
 
 type imageProps = {
   figureCss?: string;
@@ -33,23 +33,28 @@ const Image: FC<imageProps> = ({
   return (
     <>
       <figure
-        className={[styles.figure, figureCss].join(" ")}
+        className={cn("h-full flex flex-col relative", figureCss)}
         onClick={onClick}
       >
         <CheckCircleThinIcon
-          className={styles.checkedIcon}
+          className="fill-primary absolute top-0 right-0 m-10 w-6 h-auto hidden data-[selected=true]:block"
           data-selected="false"
         />
         <img
           id={id}
-          className={[styles.img, imgCss].join(" ")}
+          className={cn("w-72 h-auto", imgCss)}
           src={src}
           alt={name}
           data-selected="false"
           onClick={selectClick}
           onLoad={onLoad}
         />
-        <figcaption className={[styles.caption, figcaptionCss].join(" ")}>
+        <figcaption
+          className={cn(
+            "absolute bottom-0 left-0 right-0 min-h-12 max-h-full h-12 flex flex-col p-1.5 italic text-sm text-center text-text bg-gradient-to-t from-gradientStart to-gradientStop backdrop-blur-md",
+            figcaptionCss
+          )}
+        >
           {figcaptionText}
         </figcaption>
       </figure>

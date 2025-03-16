@@ -1,11 +1,10 @@
 import Image from "@/components/image/Image";
-import styles from "@/components/imageResult/imageResult.module.css";
 import useImageState from "@/hooks/useImageState";
 import downloadImage from "@/lib/downloadImage";
 import { cn } from "@/lib/utils";
 import { type PrimitiveAtom } from "jotai";
 import { MouseEvent } from "react";
-import Button from "../iconButton/Button";
+import Button from "../button/Button";
 import DownloadThinIcon from "../icons/DownloadThinIcon";
 import ExpandThinIcon from "../icons/ExpandThinIcon";
 import FullscreenThinIcon from "../icons/FullscreenThinIcon";
@@ -81,7 +80,7 @@ const ImageItem = ({
                   : buttonsContainerHorizontalCss
               )}
             >
-              <div className={styles.button}>
+              <div>
                 <p>Download</p>
                 <Button
                   className="inline-flex justify-center items-center hover:bg-buttonHover"
@@ -90,7 +89,7 @@ const ImageItem = ({
                   <DownloadThinIcon className="w-6 h-auto fill-primary" />
                 </Button>
               </div>
-              <div className={styles.button}>
+              <div>
                 <p>Fullscreen</p>
                 <Button
                   className="inline-flex justify-center items-center hover:bg-buttonHover"

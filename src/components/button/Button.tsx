@@ -1,19 +1,12 @@
 import { cn } from "@/lib/utils";
-import { MouseEventHandler, ReactNode } from "react";
-
-type buttonPropsType = {
-  children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  className?: string;
-  disabled?: boolean;
-};
+import { JSX } from "react";
 
 const Button = ({
   children,
   onClick,
   className,
   disabled,
-}: buttonPropsType) => {
+}: JSX.IntrinsicElements["button"]) => {
   return (
     <button
       className={cn(

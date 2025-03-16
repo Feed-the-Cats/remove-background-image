@@ -9,7 +9,6 @@ import { useAtom } from "jotai";
 import { FC, JSX, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "./dropZone.module.css";
 
 const DropZone: FC = (): JSX.Element => {
   const [, setUploadedFile] = useAtom(uploadedFileAtom);
@@ -30,15 +29,17 @@ const DropZone: FC = (): JSX.Element => {
     accept: { "image/*": [] },
   });
 
-  /*   useAtom(originalImageEffect);
-  useAtom(processImageEffect); */
-
   return (
-    <div className={styles.dropZoneContainer}>
-      <h1 className={styles.titleH1}>Remove background image</h1>
-      <div className={styles.dropZone} {...getRootProps()}>
+    <div className="w-full min-h-[777px] h-auto flex flex-col items-center justify-around gap-16 shadow-shadow">
+      <h1 className="text-titleH1 text-text pt-[30px] px-[19px]">
+        Remove background image
+      </h1>
+      <div
+        className="w-[300px] h-[300px] relative flex flex-col items-center justify-center gap-3 text-xl font-bold text-primary bg-dropzoneBorder cursor-pointer overflow-hidden"
+        {...getRootProps()}
+      >
         <input {...getInputProps()} accept="image/png, image/jpeg" />
-        <UploadThinIcon className={styles.uploadIcon} />
+        <UploadThinIcon className="w-[90px] h-auto fill-primary" />
         {isDragActive ? (
           <p>Drop the files here !</p>
         ) : (

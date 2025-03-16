@@ -1,10 +1,8 @@
-//import { computed, effect } from "@preact/signals-react";
-import { FC, JSX, useRef } from "react";
-//import { DropContext } from "../../dropContext/dropContext";
 import FullscreenExitThinIcon from "@/components/icons/FullscreenExitThinIcon";
 import { isModalOpenAtom, modalImageAtom, modalNameAtom } from "@/store/store";
 import { useAtom, useAtomValue } from "jotai";
-import styles from "./imageModal.module.css";
+import { FC, JSX, useRef } from "react";
+import Button from "../button/Button";
 
 const ImageModal: FC = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
@@ -25,22 +23,18 @@ const ImageModal: FC = (): JSX.Element => {
     <>
       <dialog
         ref={modalRef}
-        className={styles.dialog}
+        className="w-full h-full mx-auto bg-transparent border border-primary overflow-scroll scrollbar-hide"
         onCancel={handleCloseImageModal}
       >
-        <div className={styles.dialogContainer}>
-          <button
+        <div className="w-full h-full relative">
+          <Button
             autoFocus
-            className={styles.closeModal}
+            className="inline-flex justify-center items-center absolute top-5 right-5 w-10 h-10 text-primary bg-transparent border-none rounded-lg border border-primary outline-none cursor-pointer list-none select-none touch-manipulation transition-colors duration-100 hover:bg-buttonHover"
             onClick={handleCloseImageModal}
           >
-            <FullscreenExitThinIcon className={styles.fullscreenExitIcon} />
-          </button>
-          <img
-            className={styles.dialogImage}
-            src={modalImage}
-            alt={modalName}
-          />
+            <FullscreenExitThinIcon className="w-[25px] h-auto fill-primary" />
+          </Button>
+          <img className="w-full h-auto" src={modalImage} alt={modalName} />
         </div>
       </dialog>
     </>
