@@ -5,18 +5,20 @@ import ImageModal from "@/components/imagemodal/ImageModal";
 import { useFirstImage } from "@/hooks/useFirstImage";
 import useScrollToActiveImage from "@/hooks/useScrollToActiveImage";
 import selectedToZip from "@/lib/selecImagesForZip";
+import { cn } from "@/lib/utils";
 import {
   activeIdAtom,
   filterSelected,
   isButtonDisabledAtom,
   isModalOpenAtom,
+  loadedAtom,
   loadingAtom,
   modalImageAtom,
   modalNameAtom,
   splitedImagesAtom,
 } from "@/store/store";
 import { useAtom } from "jotai";
-import styles from "./imageResult.module.css";
+import Button from "../iconButton/Button";
 
 const ImageResult: FC = (): JSX.Element => {
   const [splitedImages] = useAtom(splitedImagesAtom);
@@ -27,8 +29,10 @@ const ImageResult: FC = (): JSX.Element => {
   const [, setActiveId] = useAtom(activeIdAtom);
   const [filtered] = useAtom(filterSelected);
   const [loading] = useAtom(loadingAtom);
-
+  const [loaded] = useAtom(loadedAtom);
   const firstImage = useFirstImage(splitedImages);
+
+  setIsButtonDisabled(!filtered);
 
   useEffect(() => {
     if (firstImage) {
@@ -36,25 +40,33 @@ const ImageResult: FC = (): JSX.Element => {
     }
   }, [firstImage, setActiveId]);
 
-  console.log("splitedImages.length", splitedImages.length);
   useScrollToActiveImage();
 
   return (
     <>
-      {loading && <div className={styles.loading}>Loading...</div>}
+      {loading && (
+        <div
+          className={cn(
+            "font-black",
+            loaded ? "text-green-700 text-2xl" : "text-red-700 text-xl"
+          )}
+        >
+          {loading}
+        </div>
+      )}
       {!!splitedImages.length && (
         <>
-          <h1 className={styles.titleH1}>Gallery</h1>{" "}
-          <button
-            className={styles.downloadZip}
+          <h1 className="font-extralight text-titleH1 text-text">Gallery</h1>{" "}
+          <Button
+            className="w-auto h-10 px-[15px] disabled:bg-buttonHover disabled:cursor-not-allowed"
             onClick={() => selectedToZip()}
             disabled={isButtonDisabled}
           >
             Download all selected as zip
-          </button>
+          </Button>
         </>
       )}
-      <div className={styles.imageContainer}>
+      <div className="w-full h-auto flex flex-row flex-wrap justify-center items-end gap-2.5">
         {splitedImages.map((imageAtom) => (
           <ImageItem
             key={imageAtom.toString()}
@@ -62,8 +74,10 @@ const ImageResult: FC = (): JSX.Element => {
             setModalImage={setModalImage}
             setModalName={setModalName}
             setIsModalOpen={setIsModalOpen}
-            setIsButtonDisabled={setIsButtonDisabled}
-            filtered={filtered}
+            imgCss="transition-all duration-1000 cursor-pointer data-[selected=true]:w-60 data-[selected=true]:m-8 data-[selected=true]:border data-[selected=true]:border-primary"
+            figcaptionCss="h-[70px] overflow-hidden cursor-n-resize transition-all duration-1000 hover:h-full"
+            buttonsContainerVerticalCss="w-[259px] h-[362px] border-2 border-primary mx-auto my-5 flex flex-col justify-center gap-5"
+            buttonsContainerHorizontalCss="w-[259px] h-[362px] border-2 border-primary mx-auto my-5 flex flex-row justify-center gap-5 items-center"
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-.imageContainer {
+/* .imageContainer {
   width: 100%;
   height: auto;
   display: flex;
@@ -6,14 +6,14 @@
   justify-content: center;
   align-items: end;
   gap: 10px;
-}
+} */
 
-.titleH1 {
+/* .titleH1 {
   font-size: var(--titleH1);
   color: var(--text);
-}
+} */
 
-.captionTransition {
+/* .captionTransition {
   height: 70px;
   overflow: hidden;
   cursor: n-resize;
@@ -22,18 +22,18 @@
 
 .captionTransition:hover {
   height: 100%;
-}
-.imgCss {
+} */
+/* .imgCss {
   transition: width 1s;
   cursor: pointer;
-}
-.imgCss[data-selected="true"] {
+} */
+/* .imgCss[data-selected="true"] {
   width: 240px;
   margin: 30px;
   border: 1px solid var(--primary);
-}
+} */
 
-.buttonsContainerVertical {
+/* .buttonsContainerVertical {
   width: 259px;
   height: 362px;
   border: 2px solid var(--primary);
@@ -54,9 +54,9 @@
   justify-content: center;
   gap: 20px;
   align-items: center;
-}
+} */
 
-.downloadButton,
+/* .downloadButton,
 .fullscreenButton,
 .downloadZip {
   display: inline-block;
@@ -85,7 +85,7 @@
 .downloadZip[disabled] {
   background-color: var(--buttonHover);
   cursor: not-allowed;
-}
+} */
 
 /* horizontal image*/
 /* ._src_components_imageResult_imageResult_module__buttonsContainer {
@@ -99,12 +99,12 @@
     gap: 20px;
   } */
 
-.downloadButton:hover,
+/* .downloadButton:hover,
 .fullscreenButton:hover {
   background: var(--buttonHover);
-}
+} */
 
-.downloadIcon,
+/* .downloadIcon,
 .fullscreenIcon {
   width: 25px;
   height: auto;
@@ -115,4 +115,4 @@
   width: 15px;
   height: auto;
   fill: var(--primary);
-}
+} */

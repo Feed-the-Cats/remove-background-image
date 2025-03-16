@@ -12,16 +12,9 @@ const ImageModal: FC = (): JSX.Element => {
   const modalName = useAtomValue(modalNameAtom);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
-  /*   const isOpen = computed(() => isModalOpen.value === true); */
   const handleCloseImageModal = () => {
-    // console.log("close modal");
     setIsModalOpen(false);
   };
-
-  /* effect(() => {
-    const modalDialog = modalRef.current;
-    isOpen ? modalDialog?.showModal() : modalDialog?.close();
-  }); */
 
   const modalDialog = modalRef.current;
   modalDialog && (isModalOpen ? modalDialog.showModal() : modalDialog.close());
@@ -30,7 +23,11 @@ const ImageModal: FC = (): JSX.Element => {
 
   return (
     <>
-      <dialog ref={modalRef} className={styles.dialog}>
+      <dialog
+        ref={modalRef}
+        className={styles.dialog}
+        onCancel={handleCloseImageModal}
+      >
         <div className={styles.dialogContainer}>
           <button
             autoFocus

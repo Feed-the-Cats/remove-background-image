@@ -2,29 +2,39 @@ import Image from "@/components/image/Image";
 import styles from "@/components/imageResult/imageResult.module.css";
 import useImageState from "@/hooks/useImageState";
 import downloadImage from "@/lib/downloadImage";
+import { cn } from "@/lib/utils";
 import { type PrimitiveAtom } from "jotai";
 import { MouseEvent } from "react";
+import Button from "../iconButton/Button";
 import DownloadThinIcon from "../icons/DownloadThinIcon";
 import ExpandThinIcon from "../icons/ExpandThinIcon";
 import FullscreenThinIcon from "../icons/FullscreenThinIcon";
+
+type imageItemType = {
+  imageAtom: PrimitiveAtom<imageType>;
+  setModalImage: (src: string) => void;
+  setModalName: (name: string) => void;
+  setIsModalOpen: (isOpen: boolean) => void;
+  imgCss?: string;
+  figcaptionCss?: string;
+  buttonsContainerVerticalCss?: string;
+  buttonsContainerHorizontalCss?: string;
+};
 
 const ImageItem = ({
   imageAtom,
   setModalImage,
   setModalName,
   setIsModalOpen,
-  setIsButtonDisabled,
-  filtered,
-}: {
-  imageAtom: PrimitiveAtom<imageType>;
-  setModalImage: (src: string) => void;
-  setModalName: (name: string) => void;
-  setIsModalOpen: (isOpen: boolean) => void;
-  setIsButtonDisabled: (disabled: boolean) => void;
-  filtered: boolean;
-}) => {
+  imgCss,
+  figcaptionCss,
+  buttonsContainerVerticalCss,
+  buttonsContainerHorizontalCss,
+}: imageItemType) => {
   const { value, setValue } = useImageState(imageAtom);
   const { id, image, name, width, height, isSelected } = value;
+
+  //const buttonDefault = "";
 
   const handleFullscreenImage = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -44,21 +54,20 @@ const ImageItem = ({
       circleCheck.dataset.selected === "true" ? "false" : "true";
 
     setValue({ ...value, isSelected: !value.isSelected });
-    setIsButtonDisabled(!filtered);
   };
   return (
     <Image
       {...{
         id: id,
-        imgCss: styles.imgCss,
+        imgCss: imgCss,
         src: image,
         name: name,
-        figcaptionCss: styles.captionTransition,
+        figcaptionCss: figcaptionCss,
         figcaptionText: (
           <>
             <div>
-              <div>
-                <ExpandThinIcon className={styles.expand} />
+              <div className="inline-flex justify-center">
+                <ExpandThinIcon className="w-4 h-auto fill-primary" />
               </div>
               <p>Name : {name}</p>
               <p>
@@ -66,31 +75,31 @@ const ImageItem = ({
               </p>
             </div>
             <div
-              className={
+              className={cn(
                 height > width
-                  ? styles.buttonsContainerVertical
-                  : styles.buttonsContainerHorizontal
-              }
+                  ? buttonsContainerVerticalCss
+                  : buttonsContainerHorizontalCss
+              )}
             >
               <div className={styles.button}>
                 <p>Download</p>
-                <button
-                  className={styles.downloadButton}
+                <Button
+                  className="inline-flex justify-center items-center hover:bg-buttonHover"
                   onClick={() => downloadImage(image)}
                 >
-                  <DownloadThinIcon className={styles.downloadIcon} />
-                </button>
+                  <DownloadThinIcon className="w-6 h-auto fill-primary" />
+                </Button>
               </div>
               <div className={styles.button}>
                 <p>Fullscreen</p>
-                <button
-                  className={styles.downloadButton}
+                <Button
+                  className="inline-flex justify-center items-center hover:bg-buttonHover"
                   onClick={(e: MouseEvent<HTMLButtonElement>) =>
                     handleFullscreenImage(e)
                   }
                 >
-                  <FullscreenThinIcon className={styles.fullscreenIcon} />
-                </button>
+                  <FullscreenThinIcon className="w-6 h-auto fill-primary" />
+                </Button>
               </div>
             </div>
           </>

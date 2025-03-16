@@ -1,4 +1,4 @@
-import { rename } from "@/lib/atomUtil";
+import { rename } from "@/lib/rename";
 import { Config, removeBackground } from "@imgly/background-removal";
 import { atom } from "jotai";
 import { atomEffect } from "jotai-effect";
@@ -169,8 +169,8 @@ export const filterSelected = atom((get) => {
   const atoms = get(splitedImagesAtom);
   return (
     atoms.filter((imageAtom) => {
-      const image = get(imageAtom);
-      return image.isSelected === true;
+      const isSelected = get(imageAtom).isSelected;
+      return isSelected === true;
     }).length >= 1
   );
 });
