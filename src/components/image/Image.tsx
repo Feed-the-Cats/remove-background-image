@@ -51,7 +51,7 @@ const Image: FC<imageProps> = ({
         />
         <figcaption
           className={cn(
-            "absolute bottom-0 left-0 right-0 min-h-12 max-h-full h-12 flex flex-col p-1.5 italic text-sm text-center text-text bg-gradient-to-t from-gradientStart to-gradientStop backdrop-blur-md",
+            "absolute bottom-0 left-0 right-0 min-h-17 max-h-full h-17 flex flex-col p-1.5 italic text-sm text-center text-text bg-gradient-to-t from-gradientStart to-gradientStop backdrop-blur-md",
             figcaptionCss
           )}
         >

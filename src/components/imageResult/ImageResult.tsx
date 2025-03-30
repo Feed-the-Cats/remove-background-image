@@ -5,7 +5,6 @@ import ImageModal from "@/components/imagemodal/ImageModal";
 import { useFirstImage } from "@/hooks/useFirstImage";
 import useScrollToActiveImage from "@/hooks/useScrollToActiveImage";
 import selectedToZip from "@/lib/selecImagesForZip";
-import { cn } from "@/lib/utils";
 import {
   activeIdAtom,
   filterSelected,
@@ -44,21 +43,11 @@ const ImageResult: FC = (): JSX.Element => {
 
   return (
     <>
-      {loading && (
-        <div
-          className={cn(
-            "font-black",
-            loaded ? "text-green-700 text-2xl" : "text-red-700 text-xl"
-          )}
-        >
-          {loading}
-        </div>
-      )}
       {!!splitedImages.length && (
         <>
           <h1 className="font-extralight text-titleH1 text-text">Gallery</h1>{" "}
           <Button
-            className="w-auto h-10 px-[15px] disabled:bg-buttonHover disabled:cursor-not-allowed"
+            className="w-auto h-10 px-4 disabled:bg-buttonHover disabled:cursor-not-allowed"
             onClick={() => selectedToZip()}
             disabled={isButtonDisabled}
           >
@@ -75,9 +64,9 @@ const ImageResult: FC = (): JSX.Element => {
             setModalName={setModalName}
             setIsModalOpen={setIsModalOpen}
             imgCss="transition-all duration-1000 cursor-pointer data-[selected=true]:w-60 data-[selected=true]:m-8 data-[selected=true]:border data-[selected=true]:border-primary"
-            figcaptionCss="h-[70px] overflow-hidden cursor-n-resize transition-all duration-1000 hover:h-full"
-            buttonsContainerVerticalCss="w-[259px] h-[362px] border-2 border-primary mx-auto my-5 flex flex-col justify-center gap-5"
-            buttonsContainerHorizontalCss="w-[259px] h-[362px] border-2 border-primary mx-auto my-5 flex flex-row justify-center gap-5 items-center"
+            figcaptionCss="h-24 overflow-hidden cursor-n-resize transition-all duration-1000 hover:h-full"
+            buttonsContainerVerticalCss="w-64 h-[362px] border-2 border-primary mx-auto my-5 flex flex-col justify-center gap-5"
+            buttonsContainerHorizontalCss="w-64 h-[362px] border-2 border-primary mx-auto my-5 flex flex-row justify-center gap-5 items-center"
           />
         ))}
       </div>
