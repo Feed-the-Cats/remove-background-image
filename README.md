@@ -1,34 +1,115 @@
-<<<<<<< HEAD
-# remove-background-image
-=======
-# React + TypeScript + Vite
+# Remove Background Image
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Bannière ou screenshot de l'application](https://via.placeholder.com/1200x600?text=Remove+Background+Image+Banner)
 
-Currently, two official plugins are available:
+_(Remplacez ceci par une vraie image ou screenshot)_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Une application web pour supprimer automatiquement l'arrière-plan des images, construite avec :
 
-## Expanding the ESLint configuration
+- **React** + **TypeScript** + **Vite**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **@imgly/background-removal** pour le traitement d'images
 
-- Configure the top-level `parserOptions` property like this:
+- **Jotai** pour la gestion d'état
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- **TailwindCSS** (optionnel) pour le styling
+
+## ✨ Fonctionnalités
+
+- 🖼️ Suppression d'arrière-plan en un clic
+
+- 📤 Glisser-déposer des images
+
+- 🖱️ Exemples intégrés pour tester rapidement
+
+- 📥 Téléchargement des résultats en PNG
+
+- 🗃️ Export multiple en ZIP
+
+- 🚀 Interface simple et intuitive
+
+## 🚀 Démo en ligne
+
+[Lien vers la démo stackblitz](https://stackblitz.com/~/github.com/Feed-the-Cats/remove-background-image)
+
+_(Ajoutez un lien si l'application est déployée)_
+
+## 🛠 Installation locale
+
+1.  **Cloner le dépôt** :
+
+```bash
+git clone https://github.com/Feed-the-Cats/remove-background-image.git
+
+cd remove-background-image
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
->>>>>>> 5f923dc (Initial commit)
+2. **Installer les dépendances :**
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+3. **Lancer l'application :**
+
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+## 📦 Technologies clés
+
+Technologie Usage
+
+---
+
+React Framework frontend
+
+---
+
+TypeScript Typage statique
+
+---
+
+Vite Build tool
+
+---
+
+TailwindCSS Styling
+
+---
+
+Jotai Gestion d'état
+
+---
+
+img.ly Suppression d'arrière-plan
+
+---
+
+## 📁 Structure du projet
+
+remove-background-image/
+
+├── src/
+
+│ ├── components/ # Composants React
+
+│ ├── hooks/ # Custom hooks
+
+│ ├── store/ # État global (Jotai)
+
+│ ├── assets/ # Images et ressources
+
+│ ├── App.tsx # Composant principal
+
+│ └── main.tsx # Point d'entrée
+
+├── public/ # Fichiers statiques
+
+├── vite.config.ts # Configuration Vite
+
+└── package.json # Dépendances
