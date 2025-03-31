@@ -1,8 +1,6 @@
 # Remove Background Image
 
-![Bannière ou screenshot de l'application](https://via.placeholder.com/1200x600?text=Remove+Background+Image+Banner)
-
-_(Remplacez ceci par une vraie image ou screenshot)_
+![Bannière ou screenshot de l'application](https://github.com/Feed-the-Cats/remove-background-image/blob/main/src/assets/readme_img.jpg)
 
 Une application web pour supprimer automatiquement l'arrière-plan des images, construite avec :
 
