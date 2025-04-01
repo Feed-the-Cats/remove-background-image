@@ -10,7 +10,6 @@ declare module "*.svg" {
 // Atoms types
 
 type uploadedFileType = File | string | null;
-// type uploadedFileType = string | ArrayBuffer | null;
 type imageSourceType = string | undefined;
 type loadingType = number;
 type loadedType = boolean;

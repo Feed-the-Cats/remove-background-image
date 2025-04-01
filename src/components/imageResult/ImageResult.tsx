@@ -1,5 +1,5 @@
 import ImageItem from "@/components/imageItem/ImageItem";
-import { FC, JSX, useEffect } from "react";
+import { JSX, useEffect } from "react";
 //import CheckCircleThinIcon from "../icons/CheckCircleThinIcon";
 import ImageModal from "@/components/imagemodal/ImageModal";
 import { useFirstImage } from "@/hooks/useFirstImage";
@@ -19,7 +19,7 @@ import {
 import { useAtom } from "jotai";
 import Button from "../button/Button";
 
-const ImageResult: FC = (): JSX.Element => {
+const ImageResult = (): JSX.Element => {
   const [splitedImages] = useAtom(splitedImagesAtom);
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
   const [isButtonDisabled, setIsButtonDisabled] = useAtom(isButtonDisabledAtom);

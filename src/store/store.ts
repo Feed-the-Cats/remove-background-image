@@ -111,15 +111,12 @@ const addImage = atom(null, (get, set) => {
       height,
       isSelected: false,
     };
-    console.log("newImage", newImage);
     set(imagesAtom, [newImage, ...currentImages]);
   }
 });
 
 export const processAndAddImageAtom = atom(null, (get, set) => {
-  console.log("processAndAddImageAtom triggered");
   const imageSource = get(imageSourceAtom);
-  console.log("imageSource:", imageSource);
   const name = get(sourceImageNameAtom);
   const loading = get(loadingAtom);
 
@@ -160,7 +157,6 @@ export const processAndAddImageAtom = atom(null, (get, set) => {
 });
 
 export const processImageEffect = atomEffect((get, set) => {
-  console.log("processImageEffect triggered");
   const imageSource = get(imageSourceAtom);
   if (imageSource) set(processAndAddImageAtom); // Déclencher processAndAddImageAtom
 });

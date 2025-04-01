@@ -1,9 +1,9 @@
 import Image from "@/components/image/Image";
 import useImageState from "@/hooks/useImageState";
+import { cn } from "@/lib/cn";
 import downloadImage from "@/lib/downloadImage";
-import { cn } from "@/lib/utils";
 import { type PrimitiveAtom } from "jotai";
-import { MouseEvent } from "react";
+import { JSX, MouseEvent } from "react";
 import Button from "../button/Button";
 import DownloadThinIcon from "../icons/DownloadThinIcon";
 import ExpandThinIcon from "../icons/ExpandThinIcon";
@@ -29,7 +29,7 @@ const ImageItem = ({
   figcaptionCss,
   buttonsContainerVerticalCss,
   buttonsContainerHorizontalCss,
-}: imageItemType) => {
+}: imageItemType): JSX.Element => {
   const { value, setValue } = useImageState(imageAtom);
   const { id, image, name, width, height, isSelected } = value;
 

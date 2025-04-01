@@ -1,5 +1,7 @@
-import { FC, SVGProps } from "react";
-const UploadThinIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+import { JSX, SVGProps } from "react";
+
+type PropsType = SVGProps<SVGSVGElement>;
+const UploadThinIcon = (props: PropsType): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={14}

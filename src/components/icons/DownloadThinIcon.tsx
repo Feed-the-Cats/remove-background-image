@@ -1,5 +1,7 @@
-import { FC, SVGProps } from "react";
-const DownloadThinIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+import { JSX, SVGProps } from "react";
+
+type PropsType = SVGProps<SVGSVGElement>;
+const DownloadThinIcon = (props: PropsType): JSX.Element => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"

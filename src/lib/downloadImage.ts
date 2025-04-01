@@ -1,5 +1,3 @@
-import ImageModal from "../components/imagemodal/ImageModal";
-
 const downloadImage = (blob: string): void => {
   const a: HTMLAnchorElement = document.createElement("a");
   a.href = blob;

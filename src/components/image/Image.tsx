@@ -1,6 +1,6 @@
 import CheckCircleThinIcon from "@/components/icons/CheckCircleThinIcon";
-import { cn } from "@/lib/utils";
-import { FC, JSX, MouseEventHandler, ReactNode } from "react";
+import { cn } from "@/lib/cn";
+import { JSX, MouseEventHandler, ReactNode } from "react";
 
 type imageProps = {
   figureCss?: string;
@@ -18,7 +18,7 @@ type imageProps = {
   isSelected?: boolean;
 };
 
-const Image: FC<imageProps> = ({
+const Image = ({
   figureCss,
   onClick,
   selectClick,
@@ -29,7 +29,7 @@ const Image: FC<imageProps> = ({
   name,
   figcaptionCss,
   figcaptionText,
-}): JSX.Element => {
+}: imageProps): JSX.Element => {
   return (
     <>
       <figure

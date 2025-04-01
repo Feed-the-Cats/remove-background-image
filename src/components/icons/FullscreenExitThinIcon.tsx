@@ -1,6 +1,7 @@
-import { FC, SVGProps } from "react";
+import { JSX, SVGProps } from "react";
 
-const FullscreenExitThinIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+type PropsType = SVGProps<SVGSVGElement>;
+const FullscreenExitThinIcon = (props: PropsType): JSX.Element => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"

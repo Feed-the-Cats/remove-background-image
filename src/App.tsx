@@ -1,27 +1,23 @@
-//import { useContext } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { colors } from "../tailwind.config";
 import DropZone from "./components/dropZone/DropZone";
 import Footer from "./components/footer/Footer";
 import SpinnerIcon from "./components/icons/SpinnerIcon";
 import Image from "./components/image/Image";
 import ImageResult from "./components/imageResult/ImageResult";
-import { cn } from "./lib/utils";
+import { cn } from "./lib/cn";
 import {
   imageSizeAtom,
   imageSourceAtom,
   loadedAtom,
-  loadingAtom,
   sourceImageNameAtom,
   stateAtom,
 } from "./store/store";
 
-import { colors } from "../tailwind.config";
-
 const App = () => {
   const [imageSource] = useAtom(imageSourceAtom);
-  const [loading] = useAtom(loadingAtom);
   const [loaded] = useAtom(loadedAtom);
   const [state] = useAtom(stateAtom);
   const [imageSize] = useAtom(imageSizeAtom);

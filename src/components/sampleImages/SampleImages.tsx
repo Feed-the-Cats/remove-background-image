@@ -6,9 +6,9 @@ import {
   uploadedFileAtom,
 } from "@/store/store";
 import { useAtom } from "jotai";
-import { FC, JSX } from "react";
+import { JSX } from "react";
 
-const SampleImages: FC = (): JSX.Element => {
+const SampleImages = (): JSX.Element => {
   const [sampleImages] = useAtom(sampleImagesAtom);
   const [, sourceImageName] = useAtom(sourceImageNameAtom);
   const [, setUploadedFile] = useAtom(uploadedFileAtom);

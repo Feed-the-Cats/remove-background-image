@@ -1,13 +1,11 @@
-import { FC, SVGProps } from "react";
-type SpinnerColorsType = {
+import { JSX, SVGProps } from "react";
+type SpinnerColorsType = SVGProps<SVGSVGElement> & {
   color1?: string;
   color2?: string;
   color3?: string;
 };
 
-const SpinnerIcon: FC<SpinnerColorsType & SVGProps<SVGSVGElement>> = (
-  props
-) => {
+const SpinnerIcon = (props: SpinnerColorsType): JSX.Element => {
   const { color1, color2, color3, ...rest } = props;
   return (
     <svg

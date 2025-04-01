@@ -1,12 +1,13 @@
-import { cn } from "@/lib/utils";
-import { JSX } from "react";
+import { cn } from "@/lib/cn";
+import { ButtonHTMLAttributes, JSX } from "react";
 
+type ButtonType = ButtonHTMLAttributes<HTMLButtonElement>;
 const Button = ({
   children,
   onClick,
   className,
   disabled,
-}: JSX.IntrinsicElements["button"]) => {
+}: ButtonType): JSX.Element => {
   return (
     <button
       className={cn(

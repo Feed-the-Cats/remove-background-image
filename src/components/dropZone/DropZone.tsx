@@ -1,4 +1,3 @@
-import { dropZone } from "@/assets/dropZoneIco";
 import UploadThinIcon from "@/components/icons/UploadThinIcon";
 import SampleImages from "@/components/sampleImages/SampleImages";
 import {
@@ -7,16 +6,12 @@ import {
   uploadedFileAtom,
 } from "@/store/store";
 import { useAtom } from "jotai";
-import svgToDataUri from "mini-svg-data-uri";
-import { FC, JSX, useCallback } from "react";
+import { JSX, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import "react-toastify/dist/ReactToastify.css";
 
-const DropZone: FC = (): JSX.Element => {
+const DropZone = (): JSX.Element => {
   const [, setUploadedFile] = useAtom(uploadedFileAtom);
-
-  console.log("DropZone", typeof dropZone);
-  console.log(svgToDataUri(dropZone));
 
   useAtom(originalImageEffect);
   useAtom(processImageEffect);

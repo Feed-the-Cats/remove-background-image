@@ -1,10 +1,10 @@
 import FullscreenExitThinIcon from "@/components/icons/FullscreenExitThinIcon";
 import { isModalOpenAtom, modalImageAtom, modalNameAtom } from "@/store/store";
 import { useAtom, useAtomValue } from "jotai";
-import { FC, JSX, useRef } from "react";
+import { JSX, useRef } from "react";
 import Button from "../button/Button";
 
-const ImageModal: FC = (): JSX.Element => {
+const ImageModal = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
   const modalImage = useAtomValue(modalImageAtom);
   const modalName = useAtomValue(modalNameAtom);
@@ -16,8 +16,6 @@ const ImageModal: FC = (): JSX.Element => {
 
   const modalDialog = modalRef.current;
   modalDialog && (isModalOpen ? modalDialog.showModal() : modalDialog.close());
-
-  console.log("isModalOpen in", isModalOpen);
 
   return (
     <>
